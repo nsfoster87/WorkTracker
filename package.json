@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "build-dev": "webpack --watch"
+    "build-dev": "webpack --watch",
+    "start": "node ./server/index.js",
+    "start-dev": "nodemon ./server/index.js"
   },
   "author": "Nate Foster",
   "license": "ISC",
