@@ -4,7 +4,9 @@
   "description": "A work-tracking application for contractors",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack",
+    "build-dev": "webpack --watch"
   },
   "author": "Nate Foster",
   "license": "ISC",
