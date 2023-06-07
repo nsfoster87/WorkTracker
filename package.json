@@ -1,0 +1,11 @@
+{
+  "name": "worktracker",
+  "version": "1.0.0",
+  "description": "A work-tracking application for contractors",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Nate Foster",
+  "license": "ISC"
+}
