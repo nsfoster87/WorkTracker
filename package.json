@@ -4,8 +4,28 @@
   "description": "A work-tracking application for contractors",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack",
+    "build-dev": "webpack --watch",
+    "start": "node ./server/index.js",
+    "start-dev": "nodemon ./server/index.js"
   },
   "author": "Nate Foster",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.4",
+    "@babel/preset-react": "^7.22.3",
+    "babel-loader": "^9.1.2",
+    "express": "^4.18.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "webpack": "^5.86.0",
+    "webpack-cli": "^5.1.4"
+  }
 }
