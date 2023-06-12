@@ -52,9 +52,16 @@ CREATE TABLE IF NOT EXISTS addOns (
   id INT PRIMARY KEY,
   reason VARCHAR(255),
   amount FLOAT,
-  notes VARCHAR(255),
-  isExpense BOOLEAN,
   isTip BOOLEAN,
+  entry_id INT,
+  FOREIGN KEY(entry_id) REFERENCES entries(id)
+);
+
+CREATE TABLE IF NOT EXISTS expenses (
+  id INT PRIMARY KEY,
+  reason VARCHAR(255),
+  amount FLOAT,
+  reimbursed BOOLEAN,
   entry_id INT,
   FOREIGN KEY(entry_id) REFERENCES entries(id)
 );
