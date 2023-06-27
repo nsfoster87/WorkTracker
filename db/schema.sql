@@ -3,7 +3,9 @@ CREATE TABLE IF NOT EXISTS users (
   username VARCHAR(40),
   firstName VARCHAR(40),
   lastName VARCHAR(40),
-  email VARCHAR(100)
+  email VARCHAR(100),
+  password VARCHAR(64),
+  salt VARCHAR(64)
 );
 
 CREATE TABLE IF NOT EXISTS jobs (
