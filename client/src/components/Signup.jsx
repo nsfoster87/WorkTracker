@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { TextField, Button, Container, Grid } from '@mui/material';
+import { Typography, TextField, Button, Container, Grid } from '@mui/material';
 import axios from 'axios';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(e.target.elements);
-    const password = e.target.password.value;
+    const userPassword = password;
+    setPassword('');
 
-    console.log({ username, email, password });
-
+    console.log({ username, email, userPassword });
     // try {
     //   const response = await axios.post('/signup', {
     //     username, firstName, lastName, email, password
@@ -25,19 +25,11 @@ const Signup = () => {
 
   return (
     <Container maxWidth="sm">
-      <h1>Create Account</h1>
+      <Typography variant="h4" align="center" gutterBottom>
+        Create Account
+      </Typography>
       <form className="signup-form" onSubmit={handleSubmit}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField
-              label="username"
-              variant="outlined"
-              fullWidth
-              required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </Grid>
           <Grid item xs={12}>
             <TextField
               label="email"
@@ -51,11 +43,23 @@ const Signup = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
+              label="username"
+              variant="outlined"
+              fullWidth
+              required
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
               label="password"
               type="password"
               variant="outlined"
               fullWidth
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </Grid>
           <Grid item xs={12}>
