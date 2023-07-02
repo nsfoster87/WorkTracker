@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS users (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   username VARCHAR(40),
   firstName VARCHAR(40),
   lastName VARCHAR(40),
@@ -9,29 +9,29 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE IF NOT EXISTS jobs (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(100),
   user_id INT,
   FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS entry_types (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS locations (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS clients (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS entries (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   date DATE,
   type_id INT,
   location_id INT,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS entries (
 );
 
 CREATE TABLE IF NOT EXISTS addOns (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   reason VARCHAR(255),
   amount FLOAT,
   isTip BOOLEAN,
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS addOns (
 );
 
 CREATE TABLE IF NOT EXISTS expenses (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   reason VARCHAR(255),
   amount FLOAT,
   reimbursed BOOLEAN,
