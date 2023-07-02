@@ -4,8 +4,6 @@ import axios from 'axios';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
 
   const handleSubmit = async (e) => {
@@ -14,7 +12,7 @@ const Signup = () => {
     console.log(e.target.elements);
     const password = e.target.password.value;
 
-    console.log({ username, firstName, lastName, email, password });
+    console.log({ username, email, password });
 
     // try {
     //   const response = await axios.post('/signup', {
