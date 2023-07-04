@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Signup from './Signup.jsx';
 
-export default function App() {
+const App = () => {
+  const [currentView, setCurrentView] = useState('login');
+
+  const switchView = (view) => {
+    setCurrentView(view);
+  };
+
   return (
     <>
-      <Signup />
+      {currentView === 'login' && <Login />}
+      {currentView === 'signup' && <Signup />}
     </>
   );
-}
+};
+
+export default App;
