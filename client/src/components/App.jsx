@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Signup from './Signup.jsx';
+import Login from './Login.jsx';
 
 const App = () => {
   const [currentView, setCurrentView] = useState('login');
@@ -10,8 +11,8 @@ const App = () => {
 
   return (
     <>
-      {currentView === 'login' && <Login />}
-      {currentView === 'signup' && <Signup />}
+      {currentView === 'login' && <Login switchToSignup={() => switchView('signup')}/>}
+      {currentView === 'signup' && <Signup switchToLogin={() => switchView('login')}/>}
     </>
   );
 };
