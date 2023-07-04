@@ -16,7 +16,9 @@ const Signup = () => {
     console.log({ username, email, userPassword });
     // try {
     //   const response = await axios.post('/signup', {
-    //     username, firstName, lastName, email, password
+    //     username,
+    //     email,
+    //     userPassword
     //   });
     // } catch (error) {
     //   console.log('error signing up: ', error);
