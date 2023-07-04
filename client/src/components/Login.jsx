@@ -2,47 +2,26 @@ import React, { useState } from 'react';
 import { Typography, Box, TextField, Button, Container, Grid } from '@mui/material';
 import axios from 'axios';
 
-const Signup = ({ switchToLogin }) => {
+const Login = ({ switchToSignup }) => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const userPassword = password;
     setPassword('');
 
-    console.log({ username, email, userPassword });
-    // try {
-    //   const response = await axios.post('/signup', {
-    //     username,
-    //     email,
-    //     userPassword
-    //   });
-    // } catch (error) {
-    //   console.log('error signing up: ', error);
-    // }
+    console.log({username, userPassword});
   }
 
   return (
     <Container maxWidth="sm">
       <Typography variant="h4" align="center" gutterBottom>
-        Create Account
+        Login
       </Typography>
-      <form className="signup-form" onSubmit={handleSubmit}>
+      <form className="login-form" onSubmit={handleSubmit}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField
-              label="email"
-              type="email"
-              variant="outlined"
-              fullWidth
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Grid>
           <Grid item xs={12}>
             <TextField
               label="username"
@@ -66,18 +45,18 @@ const Signup = ({ switchToLogin }) => {
           </Grid>
           <Grid item xs={12}>
             <Button type="submit" variant="contained" color="primary" fullWidth>
-              Sign Up
+              Login
             </Button>
           </Grid>
         </Grid>
       </form>
       <Box padding={1}>
-        <Typography variant="body1" align="center" className="signup-toggle" onClick={switchToLogin}>
-          Have an Account? Login
+        <Typography variant="body1" align="center" className="signup-toggle" onClick={switchToSignup}>
+          New here? Create Account
         </Typography>
       </Box>
     </Container>
   );
 }
 
-export default Signup;
+export default Login;
