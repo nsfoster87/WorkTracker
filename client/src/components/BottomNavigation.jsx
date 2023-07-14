@@ -14,7 +14,11 @@ const BottomNavigationBar = () => {
       value={value}
       onChange={handleChange}
       showLabels
-      sx={{ position: 'fixed', bottom: 0, width: '100%' }}
+      sx={{
+        position: 'fixed',
+        bottom: 0, left: 0, right: 0,
+        display: 'flex', justifyContent: 'space-around'
+      }}
     >
       <BottomNavigationAction label="Home" icon={<Home />} />
       <BottomNavigationAction label="Income" icon={<AttachMoney />} />

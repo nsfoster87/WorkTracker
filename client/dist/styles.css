@@ -5,3 +5,15 @@
 .signup-toggle:hover {
   color: #f50057; /* Change to the new color on hover (e.g., #f50057 is the Material-UI's secondary main color) */
 }
+
+.signup-view-header {
+  margin: 4vh 0;
+}
+
+.no-cursor {
+  cursor: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
