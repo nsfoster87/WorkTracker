@@ -16,8 +16,8 @@ const App = () => {
 
   return (
     <>
-      {currentView === 'login' && <Login switchToSignup={changeView}/>}
-      {currentView === 'signup' && <Signup switchToLogin={changeView}/>}
+      {currentView === 'login' && <Login changeView={changeView}/>}
+      {currentView === 'signup' && <Signup changeView={changeView}/>}
       {currentView === 'home' && <HomeView changeView={changeView} />}
       {currentView === 'income' && <IncomeView changeView={changeView} />}
       {currentView === 'analytics' && <AnalyticsView changeView={changeView} />}
