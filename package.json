@@ -9,7 +9,8 @@
     "build-dev": "webpack --watch",
     "start": "node ./server/index.js",
     "start-server": "nohup node ./server/index.js > server.log 2>&1 &",
-    "start-dev": "nodemon ./server/index.js"
+    "start-dev": "nodemon ./server/index.js",
+    "stop-server": "pkill -f ./server/index.js || true"
   },
   "author": "Nate Foster",
   "license": "ISC",
