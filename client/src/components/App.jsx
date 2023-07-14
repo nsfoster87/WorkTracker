@@ -18,10 +18,10 @@ const App = () => {
     <>
       {currentView === 'login' && <Login switchToSignup={() => changeView('signup')}/>}
       {currentView === 'signup' && <Signup switchToLogin={() => changeView('login')}/>}
-      {currentView === 'home' && <HomeView />}
-      {currentView === 'income' && <IncomeView />}
-      {currentView === 'analytics' && <AnalyticsView />}
-      {currentView === 'profile' && <ProfileView />}
+      {currentView === 'home' && <HomeView changeView={changeView} />}
+      {currentView === 'income' && <IncomeView changeView={changeView} />}
+      {currentView === 'analytics' && <AnalyticsView changeView={changeView} />}
+      {currentView === 'profile' && <ProfileView changeView={changeView} />}
       {!['signup', 'login'].includes(currentView) &&
         <BottomNavigationBar currentView={currentView} changeView={changeView} />
       }
