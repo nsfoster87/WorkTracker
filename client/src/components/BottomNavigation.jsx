@@ -1,24 +1,29 @@
 import React, { useState } from 'react';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
-import { Home, Explore, Favorite } from '@mui/icons-material';
+import { Home, InsertChart, AttachMoney, Person } from '@mui/icons-material';
 
-const BottomNavigationBar = () => {
-  const [value, setValue] = useState(0);
-
+const BottomNavigationBar = ({ currentView, changeView }) => {
   const handleChange = (e, newValue) => {
-    setValue(newValue);
+    changeView(viewMap[newValue]);
   };
+
+  const viewMap = ['home', 'income', 'analytics', 'profile'];
 
   return (
     <BottomNavigation
-      value={value}
+      value={viewMap.indexOf(currentView)}
       onChange={handleChange}
       showLabels
-      sx={{ position: 'fixed', bottom: 0, width: '100%' }}
+      sx={{
+        position: 'fixed',
+        bottom: 0, left: 0, right: 0,
+        display: 'flex', justifyContent: 'space-around'
+      }}
     >
       <BottomNavigationAction label="Home" icon={<Home />} />
-      <BottomNavigationAction label="Explore" icon={<Explore />} />
-      <BottomNavigationAction label="Favorite" icon={<Favorite />} />
+      <BottomNavigationAction label="Income" icon={<AttachMoney />} />
+      <BottomNavigationAction label="Analytics" icon={<InsertChart />} />
+      <BottomNavigationAction label="Profile" icon={<Person />} />
     </BottomNavigation>
   );
 };
