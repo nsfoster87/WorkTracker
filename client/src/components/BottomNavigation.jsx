@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import { Home, InsertChart, AttachMoney, Person } from '@mui/icons-material';
 
-const BottomNavigationBar = () => {
-  const [value, setValue] = useState(0);
-
+const BottomNavigationBar = ({ currentView, changeView }) => {
   const handleChange = (e, newValue) => {
-    setValue(newValue);
+    changeView(viewMap[newValue]);
   };
+
+  const viewMap = ['home', 'income', 'analytics', 'profile'];
 
   return (
     <BottomNavigation
-      value={value}
+      value={viewMap.indexOf(currentView)}
       onChange={handleChange}
       showLabels
       sx={{
