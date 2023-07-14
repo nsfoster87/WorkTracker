@@ -35,3 +35,12 @@
   font-size: 12px;
   color: #1976d2;
 }
+
+.close-icon-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  color: black;
+  background-color: transparent;
+}
