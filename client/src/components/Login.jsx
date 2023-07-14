@@ -17,7 +17,7 @@ const Login = ({ switchToSignup }) => {
 
   return (
     <Container className="signup-container" maxWidth="sm">
-      <Typography className="signup-view-header no-cursor" variant="h4" align="center" gutterBottom>
+      <Typography className="view-header no-cursor" variant="h4" align="center" gutterBottom>
         Login
       </Typography>
       <form className="login-form" onSubmit={handleSubmit}>

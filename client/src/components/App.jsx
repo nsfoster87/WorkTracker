@@ -8,7 +8,7 @@ import ProfileView from './ProfileView.jsx';
 import BottomNavigationBar from './BottomNavigation.jsx';
 
 const App = () => {
-  const [currentView, setCurrentView] = useState('login');
+  const [currentView, setCurrentView] = useState('home');
 
   const changeView = (view) => {
     setCurrentView(view);
