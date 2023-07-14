@@ -16,7 +16,7 @@ const Login = ({ switchToSignup }) => {
   }
 
   return (
-    <Container maxWidth="sm">
+    <Container className="signup-container" maxWidth="sm">
       <Typography className="signup-view-header no-cursor" variant="h4" align="center" gutterBottom>
         Login
       </Typography>
@@ -51,7 +51,7 @@ const Login = ({ switchToSignup }) => {
         </Grid>
       </form>
       <Box padding={1}>
-        <Typography variant="body1" align="center" className="signup-toggle" onClick={switchToSignup}>
+        <Typography variant="body1" align="center" className="signup-toggle no-cursor" onClick={switchToSignup}>
           New here? Create Account
         </Typography>
       </Box>
