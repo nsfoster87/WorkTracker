@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import Signup from './Signup.jsx';
 import Login from './Login.jsx';
+import HomeView from './HomeView.jsx';
+import AnalyticsView from './AnalyticsView.jsx';
+import IncomeView from './IncomeView.jsx';
+import ProfileView from './ProfileView.jsx';
 import BottomNavigationBar from './BottomNavigation.jsx';
 
 const App = () => {
