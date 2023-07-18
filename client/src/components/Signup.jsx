@@ -4,27 +4,25 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 
-const Signup = ({ changeView }) => {
+const Signup = ({ setIsLoggedIn, changeView }) => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userPassword = password;
-    setPassword('');
-
-    console.log({ username, email, userPassword });
-    // try {
-    //   const response = await axios.post('/signup', {
-    //     username,
-    //     email,
-    //     userPassword
-    //   });
-    // } catch (error) {
-    //   console.log('error signing up: ', error);
-    // }
+    try {
+      const response = await axios.post('/signup', { username, password });
+      if (response.status === 201) {
+        setIsLoggedIn(true);
+        changeView('home');
+      }
+    } catch (error) {
+      console.log('error signing up: ', error);
+    } finally {
+      setUsername('');
+      setPassword('');
+    }
   }
 
   return (
@@ -35,17 +33,6 @@ const Signup = ({ changeView }) => {
         </Typography>
         <form className="signup-form" onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                label="email"
-                type="email"
-                variant="outlined"
-                fullWidth
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Grid>
             <Grid item xs={12}>
               <TextField
                 label="username"

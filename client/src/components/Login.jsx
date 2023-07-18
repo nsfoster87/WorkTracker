@@ -4,17 +4,25 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 
-const Login = ({ changeView }) => {
+const Login = ({ setIsLoggedIn, changeView }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userPassword = password;
-    setPassword('');
-
-    console.log({username, userPassword});
+    try {
+      const response = await axios.post('/login', { username, password });
+      if (response.status === 200) {
+        setIsLoggedIn(true);
+        changeView('home');
+      }
+    } catch (error) {
+      console.log('Error logging in:', error);
+    } finally {
+      setUsername('');
+      setPassword('');
+    }
   }
 
   return (

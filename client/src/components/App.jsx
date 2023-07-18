@@ -9,6 +9,7 @@ import BottomNavigationBar from './BottomNavigation.jsx';
 
 const App = () => {
   const [currentView, setCurrentView] = useState('home');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const changeView = (view) => {
     setCurrentView(view);
@@ -16,8 +17,8 @@ const App = () => {
 
   return (
     <>
-      {currentView === 'login' && <Login changeView={changeView}/>}
-      {currentView === 'signup' && <Signup changeView={changeView}/>}
+      {currentView === 'login' && <Login setIsLoggedIn={setIsLoggedIn} changeView={changeView}/>}
+      {currentView === 'signup' && <Signup setIsLoggedIn={setIsLoggedIn} changeView={changeView}/>}
       {currentView === 'home' && <HomeView changeView={changeView} />}
       {currentView === 'income' && <IncomeView changeView={changeView} />}
       {currentView === 'analytics' && <AnalyticsView changeView={changeView} />}

@@ -25,7 +25,7 @@ const createHash = (data, salt = '') => {
  */
 
 const compareHash = (attempted, stored, salt) => {
-  return stored === this.createHash(attempted, salt);
+  return stored === createHash(attempted, salt);
 };
 
 /**
