@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 
-const Signup = ({ setIsLoggedIn, changeView }) => {
+const Signup = ({ setUserId, setIsLoggedIn, changeView }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,6 +15,7 @@ const Signup = ({ setIsLoggedIn, changeView }) => {
       const response = await axios.post('/signup', { username, password });
       if (response.status === 201) {
         setIsLoggedIn(true);
+        setUserId(response.data);
         changeView('home');
       }
     } catch (error) {
@@ -67,10 +68,6 @@ const Signup = ({ setIsLoggedIn, changeView }) => {
           </Typography>
         </Box>
       </Container>
-
-      <IconButton className="close-icon-button" onClick={() => changeView('home')} >
-        <CloseIcon />
-      </IconButton>
     </>
 
   );

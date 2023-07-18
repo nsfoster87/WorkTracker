@@ -8,8 +8,9 @@ import ProfileView from './ProfileView.jsx';
 import BottomNavigationBar from './BottomNavigation.jsx';
 
 const App = () => {
-  const [currentView, setCurrentView] = useState('home');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentView, setCurrentView] = isLoggedIn ? useState('home') : useState('login');
+  const [userId, setUserId] = useState();
 
   const changeView = (view) => {
     setCurrentView(view);
@@ -17,15 +18,34 @@ const App = () => {
 
   return (
     <>
-      {currentView === 'login' && <Login setIsLoggedIn={setIsLoggedIn} changeView={changeView}/>}
-      {currentView === 'signup' && <Signup setIsLoggedIn={setIsLoggedIn} changeView={changeView}/>}
-      {currentView === 'home' && <HomeView changeView={changeView} />}
-      {currentView === 'income' && <IncomeView changeView={changeView} />}
-      {currentView === 'analytics' && <AnalyticsView changeView={changeView} />}
-      {currentView === 'profile' && <ProfileView changeView={changeView} />}
-      {!['signup', 'login'].includes(currentView) &&
-        <BottomNavigationBar currentView={currentView} changeView={changeView} />
-      }
+      {!isLoggedIn ? (
+        <>
+          {currentView === 'login' &&
+            <Login
+              setUserId={setUserId}
+              setIsLoggedIn={setIsLoggedIn}
+              changeView={changeView}
+            />
+          }
+          {currentView === 'signup' &&
+            <Signup
+              setUserId={setUserId}
+              setIsLoggedIn={setIsLoggedIn}
+              changeView={changeView}
+            />
+          }
+        </>
+      ) : (
+        <>
+          {currentView === 'home' && <HomeView />}
+          {currentView === 'income' && <IncomeView />}
+          {currentView === 'analytics' && <AnalyticsView />}
+          {currentView === 'profile' && <ProfileView />}
+          {!['signup', 'login'].includes(currentView) &&
+            <BottomNavigationBar currentView={currentView} changeView={changeView} />
+          }
+        </>
+      )}
     </>
   );
 };

@@ -7,11 +7,6 @@ const ProfileView = ({ changeView }) => {
       <Typography className="view-header no-cursor" variant="h4" align="center" gutterBottom>
         Profile View
       </Typography>
-      <Box className="login-link-box">
-        <Typography variant="body1" align="center" className="login-link no-cursor" onClick={() => changeView('login')}>
-          Login to access all features
-        </Typography>
-      </Box>
     </Container>
   );
 };

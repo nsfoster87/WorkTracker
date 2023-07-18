@@ -1,7 +1,7 @@
 const pool = require('../../db/index.js');
 
 const createUser = async ({ username, password, salt }) => {
-  const query = 'INSERT INTO users (username, password, salt) VALUES ($1, $2, $3)';
+  const query = 'INSERT INTO users (username, password, salt) VALUES ($1, $2, $3) RETURNING id';
   const values = [username, password, salt];
 
   const client = await pool.connect();

@@ -4,7 +4,7 @@ const { createHash, compareHash, createRandom32String } = require('../utils/hash
 const authenticate = async ({ username, password }) => {
   const user = await userModel.findByUsername(username);
   if (user && compareHash(password, user.password, user.salt)) {
-    return true;
+    return user.id;
   }
   return false;
 }
@@ -32,9 +32,9 @@ const addNewUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const user = req.body;
-    const isAuthenticated = await authenticate(user);
-    if (isAuthenticated) {
-      res.status(200).json({ message: 'Login successful' });
+    const userId = await authenticate(user);
+    if (userId) {
+      res.status(200).json(userId);
     } else {
       res.status(401).json({ message: 'Invalid username or password'});
     }
