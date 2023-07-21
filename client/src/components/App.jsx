@@ -6,6 +6,7 @@ import AnalyticsView from './AnalyticsView.jsx';
 import IncomeView from './IncomeView.jsx';
 import ProfileView from './ProfileView.jsx';
 import BottomNavigationBar from './BottomNavigation.jsx';
+import TopBar from './TopBar.jsx';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -14,7 +15,7 @@ const App = () => {
 
   const changeView = (view) => {
     setCurrentView(view);
-  };
+  }; 
 
   return (
     <>
@@ -37,6 +38,7 @@ const App = () => {
         </>
       ) : (
         <>
+          {!['signup', 'login'].includes(currentView) && <TopBar />}
           {currentView === 'home' && <HomeView />}
           {currentView === 'income' && <IncomeView />}
           {currentView === 'analytics' && <AnalyticsView />}
